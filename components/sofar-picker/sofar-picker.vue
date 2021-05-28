@@ -42,10 +42,10 @@
 		    minYear: {
 				type: Number,
 				default: 1990,
-		    },
+			},
 			themeColor:{
 			  type: String,
-			  default: '#4C83D6'
+			  default: '#10BE9D'
 			}
 		},
 		data() {
