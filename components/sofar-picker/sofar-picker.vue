@@ -4,12 +4,12 @@
 			<view class="operate-box" @touchmove.stop.prevent="returnHandle" @tap.stop="returnHandle">
 				<view class="time-box">
 					<view @click="touchSelect(0)" class="time-item" :style="{color:touchIndex?'#000000':themeColor}">
-						<text>入职时间</text>
+						<text>{{startText}}</text>
 						<text>{{resultDate[0] || '--'}}</text>
 					</view>
 					<text>至</text>
 					<view @click="touchSelect(1)" class="time-item" :style="{color:touchIndex?themeColor:'#000000'}">
-						<text>离职时间</text>
+						<text>{{endText}}</text>
 						<text>{{resultDate[1] || '--'}}</text>
 					</view>
 				</view>
@@ -44,8 +44,16 @@
 				default: 1990,
 			},
 			themeColor:{
-			  type: String,
-			  default: '#10BE9D'
+				type: String,
+				default: '#10BE9D'
+			},
+			startText: {
+				type: String,
+				default: '开始时间'
+			},
+			endText: {
+				type: String,
+				default: '结束时间'
 			}
 		},
 		data() {

@@ -2,7 +2,6 @@
 	<view class="content">
 		<view class="header">
 			<view class="date-item">日期范围：{{dateValue[0]}} - {{dateValue[1]}}</view>
-			<view class="date-item">参数值(Array)：{{dateValue}}</view>
 		</view>
 		<button class="date-btn" type="default" @click="openPicker">打开</button>
 		<sofar-picker :visable.sync="pickerVisable" :defaultDate="defaultDate" @confirm="confirm"></sofar-picker>
