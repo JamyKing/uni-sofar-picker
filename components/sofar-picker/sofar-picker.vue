@@ -5,12 +5,12 @@
 				<view class="time-box">
 					<view @click="touchSelect(0)" class="time-item" :style="{color:touchIndex?'#000000':themeColor}">
 						<text>{{startText}}</text>
-						<text>{{resultDate[0] || '--'}}</text>
+						<text>{{resultDate[0]}}</text>
 					</view>
 					<text>至</text>
 					<view @click="touchSelect(1)" class="time-item" :style="{color:touchIndex?themeColor:'#000000'}">
 						<text>{{endText}}</text>
-						<text>{{resultDate[1] || '--'}}</text>
+						<text>{{resultDate[1]}}</text>
 					</view>
 				</view>
 				<view :style="{color:themeColor}" @click="pickerConfirm">确定</view>
@@ -96,7 +96,7 @@
 					this.setPicker(date)
 				} else {
 					let startTime = this.year + '.' + this.month
-					this.resultDate = [startTime, 0]
+					this.resultDate = [startTime, '至今']
 				}
 			},
 			setPicker(date) {

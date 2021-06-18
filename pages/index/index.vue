@@ -17,7 +17,7 @@
 		data() {
 			return {
 				pickerVisable: false,
-				defaultDate: ['2020.1', '至今'],
+				defaultDate: [],
 				dateValue: []
 			}
 		},

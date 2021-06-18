@@ -23,8 +23,10 @@ export default {
 <sofar-picker
   :visable.sync="pickerVisable"
   :defaultDate="defaultDate"
-  themeColor="#10BE9D"
   :minYear="1990"
+  themeColor="#10BE9D"
+  startText="开始时间"
+  endText="结束时间"
   @confirm="confirm">
 </sofar-picker>
 ```
@@ -35,8 +37,10 @@ export default {
 | ------ | ------ | ------ | ------ |
 | visable | Boolean | false | 日期选择控件的显示/隐藏，注意使用`.sync`修饰符(true: 显示; false: 隐藏) |
 | defaultDate | Array | [] | 默认预设值 |
-| themeColor | String | #10BE9D | 选择框操作栏部分字体颜色 |
 | minYear | Number | 1990 | 最小年份 |
+| themeColor | String | #10BE9D | 选择框操作栏部分字体颜色 |
+| startText | String | 开始时间 | 日期范围起始处文本 |
+| endText | String | 结束时间 | 日期范围结束处文本 |
 
 #### Events 事件说明
 
@@ -52,8 +56,6 @@ export default {
     <sofar-picker
       :visable.sync="pickerVisable"
       :defaultDate="defaultDate"
-      themeColor="#10BE9D"
-      :minYear="1990"
       @confirm="confirm">
     </sofar-picker>
   </view>
