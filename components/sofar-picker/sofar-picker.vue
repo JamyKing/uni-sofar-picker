@@ -20,7 +20,9 @@
 					<view class="picker-item" v-for="(item,index) in yearList" :key="index">{{index>0||touchIndex<1 ? item+'年' : item}}</view>
 				</picker-view-column>
 				<picker-view-column>
-					<view v-show="pickerValue[0]>0||touchIndex<1" class="picker-item" v-for="(item,index) in monthList" :key="index">{{item}}月</view>
+					<view class="picker-item" v-for="(item,index) in monthList" :key="index">
+						<text v-show="pickerValue[0]>0||touchIndex<1">{{item}}月</text>
+					</view>
 				</picker-view-column>
 			</picker-view>
 		</view>
