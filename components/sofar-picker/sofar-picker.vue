@@ -45,6 +45,14 @@
 				type: Number,
 				default: 1990,
 			},
+			endLimit: {
+				type: Boolean,
+				default: true
+			},
+			separator: {
+				type: String,
+				default: '.'
+			},
 			themeColor:{
 				type: String,
 				default: '#10BE9D'
@@ -77,7 +85,7 @@
 				monthList: monthList,
 				year: year,
 				month: month,
-				pickerValue: [1, month - 1],
+				pickerValue: [0, month - 1],
 				resultDate: []
 		    }
 		},
@@ -95,7 +103,7 @@
 					this.resultDate = this.defaultDate
 					this.setPicker(date)
 				} else {
-					let startTime = this.year + '.' + this.month
+					let startTime = this.year + this.separator + this.month
 					this.resultDate = [startTime, '至今']
 				}
 			},
@@ -103,7 +111,7 @@
 				if (date === '至今') {
 					this.pickerValue = [0, 0]
 				} else {
-					let dateArray = date.split('.')
+					let dateArray = date.split(this.separator)
 					let yearIndex = this.yearList.indexOf(Number(dateArray[0]))
 					let monthIndex = this.monthList.indexOf(Number(dateArray[1]))
 					this.pickerValue = [yearIndex, monthIndex]
@@ -116,7 +124,7 @@
 				if (year === '至今') {
 					result = '至今'
 				} else {
-					result = year + '.' + month
+					result = year + this.separator + month
 				}
 				this.resultDate[this.touchIndex] = result
 			},
@@ -149,9 +157,12 @@
 					})
 					return
 				}
-				let nowTime = new Date(year+'.'+month).getTime()
+				let nowTime = new Date(year+'/'+month).getTime()
 				let startTime = new Date(resultDate[0]).getTime()
 				let endTime = resultDate[1] === '至今' ? nowTime : new Date(resultDate[1]).getTime()
+				if (!this.endLimit) {
+					nowTime = endTime
+				}
 				if (startTime <= endTime && endTime <= nowTime) {
 					this.$emit('confirm', resultDate)
 					this.maskClick()
