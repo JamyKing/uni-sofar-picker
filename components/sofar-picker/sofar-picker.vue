@@ -45,10 +45,6 @@
 				type: Number,
 				default: 1990,
 			},
-			endLimit: {
-				type: Boolean,
-				default: true
-			},
 			separator: {
 				type: String,
 				default: '.'
@@ -160,9 +156,6 @@
 				let nowTime = new Date(year+'/'+month).getTime()
 				let startTime = new Date(resultDate[0]).getTime()
 				let endTime = resultDate[1] === '至今' ? nowTime : new Date(resultDate[1]).getTime()
-				if (!this.endLimit) {
-					nowTime = endTime
-				}
 				if (startTime <= endTime && endTime <= nowTime) {
 					this.$emit('confirm', resultDate)
 					this.maskClick()
