@@ -146,13 +146,6 @@
 			},
 			pickerConfirm() {
 				const { resultDate, year, month } = this
-				if (!resultDate[1]) {
-					uni.showToast({
-						title: '离职时间未选择！',
-						icon: 'none'
-					})
-					return
-				}
 				let nowTime = new Date(year+'/'+month).getTime()
 				let startTime = new Date(resultDate[0]).getTime()
 				let endTime = resultDate[1] === '至今' ? nowTime : new Date(resultDate[1]).getTime()
